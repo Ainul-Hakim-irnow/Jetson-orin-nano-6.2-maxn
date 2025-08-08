@@ -2,8 +2,8 @@
 For Seeed Studio reComputer **DO NOT** use ```sudo apt upgarde```
 
 ## Table of Content
-1. [Install Python 3.10 and enviroment(#Install-Python-3.10-and-enviroment)
-2. [Install pip for python 3.10](#-Install pip for python 3.10)
+1. [Install Python 3.10 and enviroment](#Install-Python-3.10-and-enviroment)
+2. [Install pip for python 3.10](#-Install-pip)
 
 ## Install Python 3.10 and enviroment
 1. Check if python 3.10 install
