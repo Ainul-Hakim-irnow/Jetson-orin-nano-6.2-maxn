@@ -102,3 +102,15 @@ pip install pypylon
 pip install opencv-python
 ```
 9. After successfull install pylon. Try it using [this](opencv.py) code above
+
+## Install Web App
+1. Open terminal and Install Epiphany Browser
+```
+sudo apt install epiphany-browser
+```
+2. Press ```Y``` to confrim and ENTER.
+3. Set folder permission
+```
+sudo chown $USER:$USER $HOME/Downloads && chmod 755 $HOME/Downloads
+```
+4. Restart the web browser
