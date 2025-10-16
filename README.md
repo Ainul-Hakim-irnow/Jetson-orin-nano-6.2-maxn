@@ -114,3 +114,83 @@ sudo apt install epiphany-browser
 sudo chown $USER:$USER $HOME/Downloads && chmod 755 $HOME/Downloads
 ```
 4. Restart the web browser
+
+## Install DWAgent
+1. Visit the website [DWAgent](https://www.dwservice.net/en/home.html)
+2. Open Terminal and navigate to Downloads folder
+```
+cd Downloads
+```
+3. Execute the permission
+```
+chmod +x dwagent.sh
+```
+4. Install the software
+```
+sudo ./dwagent.sh
+```
+
+## Remote Headless
+1. Open Terminal and Download Xorg
+```
+sudo apt-get install xserver-xorg-video-dummy
+```
+2. Open Xorg config file
+```
+sudo nano /etc/X11/xorg.conf
+```
+3. Replace this text
+```
+# Copyright (c) 2011-2013 NVIDIA CORPORATION.  All Rights Reserved.
+
+#
+# This is the minimal configuration necessary to use the Tegra driver.
+# Please refer to the xorg.conf man page for more configuration
+# options provided by the X server, including display-related options
+# provided by RandR 1.2 and higher.
+
+# Disable extensions not useful on Tegra.
+Section "Module"
+    Disable     "dri"
+    SubSection  "extmod"
+        Option  "omit xfree86-dga"
+    EndSubSection
+EndSection
+
+Section "Device"
+    Identifier  "Tegra0"
+    Driver      "nvidia"
+# Allow X server to be started even if no display devices are connected.
+    Option      "AllowEmptyInitialConfiguration" "true"
+EndSection
+```
+To this text
+```
+Section "Device"
+Identifier "Configured Video Device"
+Driver "dummy"
+# Default is 4MiB, this sets it to 16MiB
+VideoRam 16384
+EndSection
+
+Section "Monitor"
+Identifier "Configured Monitor"
+HorizSync 31.5-48.5
+VertRefresh 50-70
+EndSection
+
+Section "Screen"
+Identifier "Default Screen"
+Monitor "Configured Monitor"
+Device "Configured Video Device"
+DefaultDepth 24
+SubSection "Display"
+Depth 24
+Modes "1024×800"
+EndSubSection
+EndSection
+```
+4. Reboot jetson
+```
+sudo reboot
+```
