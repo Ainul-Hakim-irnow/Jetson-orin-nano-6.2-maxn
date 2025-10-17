@@ -135,7 +135,7 @@ sudo ./dwagent.sh
 ```
 sudo apt-get install xserver-xorg-video-dummy
 ```
-1.1 If failed ```E: Unable to locate package xserver-xorg-video-dummy```. Open ```sources.list```
+    1.1 If failed ```E: Unable to locate package xserver-xorg-video-dummy```. Open ```sources.list```
 ```
 sudo nano /etc/apt/sources.list
 ```
