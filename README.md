@@ -135,26 +135,31 @@ sudo ./dwagent.sh
 ```
 sudo apt-get install xserver-xorg-video-dummy
 ```
-1.1 If failed ```E: Unable to locate package xserver-xorg-video-dummy```. Open ```sources.list```
+1.1. If failed ```E: Unable to locate package xserver-xorg-video-dummy```. Back up the sources.list
+```
+sudo mv /etc/apt/sources.list /etc/apt/sources.list.backup
+```
+
+1.2. Open ```sources.list```
 ```
 sudo nano /etc/apt/sources.list
 ```
-1.2 Paste the following text
+1.3. Paste the following text
 ```
 deb http://ports.ubuntu.com/ubuntu-ports/ jammy main restricted universe multiverse
 deb http://ports.ubuntu.com/ubuntu-ports/ jammy-updates main restricted universe multiverse
 deb http://ports.ubuntu.com/ubuntu-ports/ jammy-backports main restricted universe multiverse
 deb http://ports.ubuntu.com/ubuntu-ports/ jammy-security main restricted universe multiverse
 ```
-1.3 Update the package
+1.4. Update the package
 ```
 sudo apt update
 ```
-1.4 Re install the Xorg
+1.5. Re install the Xorg
 ```
 sudo apt install xserver-xorg-video-dummy
 ```
-1.5 Remove the previous Xorg config file
+1.6. Remove the previous Xorg config file
 ```
 sudo rm /etc/X11/xorg.conf
 ```
