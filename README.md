@@ -36,6 +36,24 @@ source ~/.bashrc
 sudo apt install python3-pip
 ```
 
+## Install Jetson Pytorch
+1. Uninstall current Pytorch
+```
+pip3 uninstall torch torchvision torchaudio
+```
+2. Install Jetson's compatible Pytorch
+```
+pip3 install torch torchvision torchaudio --index-url https://pypi.jetson-ai-lab.io/jp6/cu126/
+```
+3. Downgrade Numpy2.xx to Numpy1.xx
+```
+pip3 install "numpy<2"
+```
+4. Verify Pytorch installation
+```
+python3 -c "import torch; print(f'PyTorch: {torch.__version__}'); print(f'CUDA Available: {torch.cuda.is_available()}'); print(f'CUDA Version: {torch.version.cuda}')"
+```
+
 ## Install Jtop
 1. Install Jtop
 ```
