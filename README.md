@@ -83,6 +83,17 @@ cd ~/Downloads
 ```
 sudo dpkg -i package_name.deb
 ```
+4. To remove keyring in vscode, Open VSCode. press ```Ctrl + Shift + P```. Type ```configure runtime``` and click to open ```argv.json``. Paste:
+```
+"password-store": "basic"
+```
+```
+{
+    "...",
+    "...",
+    "password-store": "basic"
+}
+```
 
 ## Install Pylon
 1. You can download *.tar.gz file [here](https://drive.google.com/file/d/1AKmBRzHc4yT-R1AkfoSfUR2PYj0U7Uz_/view?usp=sharing)
