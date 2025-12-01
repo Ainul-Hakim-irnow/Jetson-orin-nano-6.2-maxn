@@ -274,9 +274,9 @@ Wants=multi-user.target
 
 [Service]
 Type=simple  # Changed from forking to simple
-User=jetson1
+User=jetsonN
 Environment="DISPLAY=:0"
-Environment="XAUTHORITY=/home/jetson1/.Xauthority"
+Environment="XAUTHORITY=/home/jetsonN/.Xauthority"
 ExecStart=/usr/bin/x11vnc -display :0 -forever -shared -rfbauth /etc/x11vnc.pass
 # Removed -bg flag for Type=simple
 Restart=on-failure
@@ -288,6 +288,14 @@ WantedBy=multi-user.target
 9. Create password
 ```
 sudo x11vnc -storepasswd /etc/x11vnc.pass
+```
+```
+# Check ownership
+sudo ls -la /etc/x11vnc.pass
+
+# Should be owned by jetson2
+sudo chown jetson2:jetsonN /etc/x11vnc.pass
+sudo chmod 600 /etc/x11vnc.pass
 ```
 10. Enable and start
 ```
