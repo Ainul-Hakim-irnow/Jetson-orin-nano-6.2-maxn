@@ -253,3 +253,55 @@ EndSection
 ```
 sudo reboot
 ```
+5. Setup x11vnc
+```
+sudo apt install x11vnc
+```
+6. Setup avahi
+```
+sudo apt install avahi-daemon avahi-utils
+```
+7. Create system service for x11vnc
+```
+sudo nano /etc/systemd/system/x11vnc.service
+```
+8. Paste
+```
+[Unit]
+Description=x11vnc VNC Server
+After=network.target multi-user.target
+Wants=multi-user.target
+
+[Service]
+Type=simple  # Changed from forking to simple
+User=jetson1
+Environment="DISPLAY=:0"
+Environment="XAUTHORITY=/home/jetson1/.Xauthority"
+ExecStart=/usr/bin/x11vnc -display :0 -forever -shared -rfbauth /etc/x11vnc.pass
+# Removed -bg flag for Type=simple
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+```
+9. Create password
+```
+sudo x11vnc -storepasswd /etc/x11vnc.pass
+```
+10. Enable and start
+```
+sudo systemctl daemon-reload
+sudo systemctl enable x11vnc
+sudo systemctl start x11vnc
+sudo systemctl status x11vnc
+```
+11. Reboot
+```
+sudo reboot
+```
+12. Check status
+```
+sudo systemctl status x11vnc
+ps aux | grep x11vnc
+```
