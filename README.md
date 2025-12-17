@@ -313,3 +313,37 @@ sudo reboot
 sudo systemctl status x11vnc
 ps aux | grep x11vnc
 ```
+
+## Setup RTC Clock
+1. Make sure battery are installed at RTC and RTC are ready
+```
+ls -l /dev/rtc*
+```
+2. Usually RTC battery is set to ```rtc0```
+3. Remove possible fake clock counter
+```
+sudo apt-get remove fake-hwclock
+sudo dpkg --purge fake-hwclock
+```
+4. Set date and time accordingly
+```
+sudo date -s "YYYY-MM-DD HH:MM:SS"
+```
+5. Force write battery RTC
+```
+sudo hwclock -w -f /dev/rtc0
+```
+6. Read bettery RTC
+```
+sudo hwclock -r -f /dev/rtc0
+```
+7. Shutdown it
+```
+sudo shutdown now
+```
+8. Wait more than 1 minutes to ensure the RTC are counting.
+9. Turn it on
+10. Check the clock
+```
+sudo hwclock -r -f /dev/rtc0
+```
