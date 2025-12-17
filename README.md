@@ -159,7 +159,7 @@ chmod +x dwagent.sh
 sudo ./dwagent.sh
 ```
 
-## Remote Headless
+## Remote Headless (Important: If you set up xorg, you wont see the dislay using hdmi. make sure you can access it with ssh or other remote software!)
 1. Open Terminal and Download Xorg
 ```
 sudo apt-get install xserver-xorg-video-dummy
@@ -192,7 +192,6 @@ sudo apt install xserver-xorg-video-dummy
 ```
 sudo rm /etc/X11/xorg.conf
 ```
-
 
 2. Open Xorg config file
 ```
@@ -249,10 +248,11 @@ Modes "1920x1080"
 EndSubSection
 EndSection
 ```
-4. Reboot jetson
+4. Reboot jetson (Important: If you set up xorg, you wont see the dislay using hdmi. make sure you can access it with ssh or other remote software!)
 ```
 sudo reboot
 ```
+### VNC Setup
 5. Setup x11vnc
 ```
 sudo apt install x11vnc
