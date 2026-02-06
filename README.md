@@ -53,6 +53,14 @@ pip3 install "numpy<2"
 ```
 python3 -c "import torch; print(f'PyTorch: {torch.__version__}'); print(f'CUDA Available: {torch.cuda.is_available()}'); print(f'CUDA Version: {torch.version.cuda}')"
 ```
+5. If terminal pops up ImportError: libcudss.so.0 not found
+```
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/arm64/cuda-keyring_1.1-1_all.deb
+sudo dpkg -i cuda-keyring_1.1-1_all.deb
+sudo apt-get update
+sudo apt-get -y install cudss
+```
+6. Retry verification Pytorch installation
 
 ## Install Jtop
 1. Install Jtop
