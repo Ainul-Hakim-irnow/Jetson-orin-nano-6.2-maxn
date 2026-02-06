@@ -134,11 +134,21 @@ sudo /opt/pylon/share/pylon/setup-usb.sh
 ```
 pip install pypylon
 ```
-10. Download OpenCV
+9. Download OpenCV
 ```
 pip install opencv-python
 ```
-9. After successfull install pylon. Try it using [this](opencv.py) code above
+10. After successfull install pylon. Try it using [this](opencv.py) code above
+11. If have error:  QFontDatabase: Cannot find font directory /home/ainul/anaconda3/envs/aintect/lib/python3.10/site-packages/cv2/qt/fonts.
+
+Note that Qt no longer ships fonts. Deploy some (from https://dejavu-fonts.github.io/ for example) or switch to fontconfig. 
+```
+sudo apt-get install libfontconfig1 fonts-dejavu
+```
+12. Build link default font with cv2
+```
+ln -s /usr/share/fonts /home/ainul/anaconda3/envs/aintect/lib/python3.10/site-packages/cv2/qt/fonts
+```
 
 ## Install Web App
 1. Open terminal and Install Epiphany Browser
