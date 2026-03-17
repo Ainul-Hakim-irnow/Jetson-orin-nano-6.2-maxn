@@ -370,6 +370,6 @@ sudo hwclock -r -f /dev/rtc0
 | Label Name |  Module Pin Number  | BGA Number |
 |:-----:|:-----:|:-----:|
 | DI1   | 105 | PQ.05 |
-| DI2   |    |   PAC.06 |
-| DI3   |  |    PQ.06 |
-| DI4   |  |    PH.00 |
+| DI2   |  144  |   PAC.06 |
+| DI3   | 106 |    PQ.06 |
+| DI4   | 43 |    PH.00 |
