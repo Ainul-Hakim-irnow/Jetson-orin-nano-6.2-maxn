@@ -368,7 +368,7 @@ sudo hwclock -r -f /dev/rtc0
 
 ## DI/DO
 | Label Name |  Module Pin Number  | BGA Number |
-|:-----|:--------:|------:|
+|:-----:|:-----:|:-----:|
 | DI1   | 105 | PQ.05 |
 | DI2   |    |   PAC.06 |
 | DI3   |  |    PQ.06 |
