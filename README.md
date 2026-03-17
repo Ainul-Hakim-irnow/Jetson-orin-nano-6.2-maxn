@@ -372,3 +372,9 @@ sudo hwclock -r -f /dev/rtc0
 | DI1   | 105 | PQ.05 |
 | DI2   |  106  |   PAC.06 |
 | DI3   | 107 |    PQ.06 |
+
+Label Name,Module Pin Number (Offset),BGA Number (Tegra Signal)
+DI1,105,PQ.05
+DI2,106,PAC.06
+DI3,107,PQ.06
+DI4,108,PAC.05
